@@ -1,0 +1,181 @@
+liblog-agent-perl (1.001-2) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Salvatore Bonaccorso ]
+  * debian/control: Use HTTPS transport protocol for Vcs-Git URI
+
+  [ gregor herrmann ]
+  * debian/copyright: change Copyright-Format 1.0 URL to HTTPS.
+  * Remove Jay Bonci from Uploaders. Thanks for your work!
+
+  [ Niko Tyni ]
+  * Patch the test suite to work without cwd in @INC (Closes: #837141)
+
+ -- Niko Tyni <ntyni@debian.org>  Sat, 17 Sep 2016 16:05:30 +0300
+
+liblog-agent-perl (1.001-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ gregor herrmann ]
+  * Strip trailing slash from metacpan URLs.
+
+  [ Salvatore Bonaccorso ]
+  * Update Vcs-Browser URL to cgit web frontend
+
+  [ Lucas Kanashiro ]
+  * Add debian/upstream/metadata
+  * Import upstream version 1.001
+  * Bump debhelper compatibility level to 9
+  * Declare compliance with Debian policy 3.9.6
+  * Update year of upstream copyright
+  * Add libmailtools-perl as new dependency, used in Agent/Driver/Mail.pm
+  * Remove no longer necessary patch fixing pod errors
+  * Remove override_dh_installchangelogs, no more changes.pod file
+  * Mark as autopkg-testable
+
+ -- Lucas Kanashiro <kanashiro.duarte@gmail.com>  Tue, 01 Dec 2015 00:25:10 -0200
+
+liblog-agent-perl (1.000-1) unstable; urgency=low
+
+  [ Salvatore Bonaccorso ]
+  * debian/control: Changed: Replace versioned (build-)dependency on
+    perl (>= 5.6.0-{12,16}) with an unversioned dependency on perl (as
+    permitted by Debian Policy 3.8.3).
+
+  [ Ansgar Burchardt ]
+  * Update my email address.
+  * debian/control: Convert Vcs-* fields to Git.
+
+  [ Salvatore Bonaccorso ]
+  * Change Vcs-Git to canonical URI (git://anonscm.debian.org)
+  * Change search.cpan.org based URIs to metacpan.org based URIs
+
+  [ Florian Schlichting ]
+  * Import Upstream version 1.000 (closes: #711575)
+  * Switch to source format 3.0 (quilt)
+  * Bump Standards-Version to 3.9.4 (update to copyright-format 1.0, directly
+    link GPL-1)
+  * Bump dh compatibility to level 8 (no changes necessary)
+  * No longer ship redundant README
+  * Bump upstream copyright years and license version
+  * Update and forward pod-errors.patch
+  * Install upstream changelog to /u/s/d instead of as pod and manpage
+  * Add myself to uploaders and copyright
+
+ -- Florian Schlichting <fsfs@debian.org>  Fri, 23 Aug 2013 00:36:51 +0200
+
+liblog-agent-perl (0.307-2) unstable; urgency=low
+
+  [ gregor herrmann ]
+  * debian/control: Added: Vcs-Svn field (source stanza); Vcs-Browser
+    field (source stanza); Homepage field (source stanza).
+  * Set Maintainer to Debian Perl Group.
+  * Use dist-based URL in debian/watch.
+  * debian/control: Changed: Switched Vcs-Browser field to ViewSVN
+    (source stanza).
+  * debian/control: Added: ${misc:Depends} to Depends: field.
+
+  [ Ansgar Burchardt ]
+  * Refresh rules for debhelper 7.
+  * Bump Standards-Version to 3.8.2.
+  * Convert debian/copyright to proposed machine-readable format.
+  * Add myself to Uploaders.
+  * Fix POD errors in Log::Agent::Driver::Default, Log::Agent::Driver::Fork
+    + new patch: pod-errors.patch
+    + Add quilt framework and README.source
+  * debian/watch: use extended regexp for matching upstream versions.
+
+ -- Ansgar Burchardt <ansgar@43-1.org>  Thu, 23 Jul 2009 13:44:30 +0200
+
+liblog-agent-perl (0.307-1) unstable; urgency=low
+
+  * New upstream release (Closes: #335822)
+  * Fix to debian/watch so that uscan uses uupdate
+  * Bump to policy-version 3.6.2.1 (No other changes)
+
+ -- Jay Bonci <jaybonci@debian.org>  Sun, 11 Dec 2005 19:17:22 -0500
+
+liblog-agent-perl (0.306-1) unstable; urgency=low
+
+  * New upstream version
+  * Repaired debian/watch so uscan will actually work
+
+ -- Jay Bonci <jaybonci@debian.org>  Sun, 12 Sep 2004 23:45:54 -0400
+
+liblog-agent-perl (0.305-1) unstable; urgency=low
+
+  * Updated maintainer address
+  * Repaired typo in policy version number. No changes otherwise
+  * New upstream version
+  * Added compat file per debhelper best practices
+  * Updated CPAN url to not be a link to the file, but the general dist/ page
+  * Slightly changed short description to be more descriptive
+
+ -- Jay Bonci <jaybonci@debian.org>  Wed,  1 Oct 2003 11:45:14 -0400
+
+liblog-agent-perl (0.3.4-3) unstable; urgency=low
+
+  * New Maintainer Closes: #202347
+  * Changed build process. 
+    -  Removed postinst and preinst files
+    -  Simplified rules file
+    -  Updated to use debhelper 4
+  * Added watch file
+
+ -- Jay Bonci <jay@bonci.com>  Thu, 24 Jul 2003 03:21:53 -0400
+
+liblog-agent-perl (0.3.4-2) unstable; urgency=low
+
+  * orphaned; package maintainer set to packages@qa.debian.org
+
+ -- tony mancill <tmancill@debian.org>  Mon, 21 Jul 2003 16:07:31 -0700
+
+liblog-agent-perl (0.3.4-1) unstable; urgency=low
+
+  * new upstream version
+  * section is perl as per debian-devel-announce-200303/msg00028.html
+  * arch indep module files now install into /usr/share/perl5/
+    instead of /usr/lib/perl5/
+
+ -- tony mancill <tmancill@debian.org>  Sun, 11 May 2003 10:33:18 -0700
+
+liblog-agent-perl (0.3.3-1) unstable; urgency=low
+
+  * new upstream release
+  * Debian lintian tweaks (build-depends-indep, postinst, stds version)
+
+ -- tony mancill <tmancill@debian.org>  Sun,  3 Nov 2002 15:43:06 -0800
+
+liblog-agent-perl (0.3.1-2) unstable; urgency=low
+
+  * debian/rules builds package in build-indep target (closes: #157485)
+  * copyright explicitly points to common license file (closes: #157603)
+
+ -- tony mancill <tmancill@debian.org>  Sat, 24 Aug 2002 14:54:57 -0700
+
+liblog-agent-perl (0.3.1-1) unstable; urgency=low
+
+  * new upstream release (closes: #142089)
+
+ -- tony mancill <tmancill@debian.org>  Sun, 14 Apr 2002 12:10:21 -0700
+
+liblog-agent-perl (0.2.8-2) unstable; urgency=low
+
+  * built with dpkg-1.9.15 
+
+ -- tony mancill <tmancill@debian.org>  Thu, 28 Jun 2001 08:47:48 -0700
+
+liblog-agent-perl (0.2.8-1) unstable; urgency=low
+
+  * new upstream version
+  * Closes: Bug#102399 (missing prefix method in syslog driver)
+
+ -- tony mancill <tmancill@debian.org>  Tue, 26 Jun 2001 23:54:30 -0700
+
+liblog-agent-perl (0.2.1-1) unstable; urgency=low
+
+  * Initial Release - Closes Bug#87452 (ITP) 
+
+ -- tony mancill <tmancill@debian.org>  Mon, 22 Jan 2001 17:09:44 -0700
