@@ -4,7 +4,7 @@
 #
 Name     : perl-Log-Agent
 Version  : 1.003
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/M/MR/MROGASKI/Log-Agent-1.003.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MR/MROGASKI/Log-Agent-1.003.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libl/liblog-agent-perl/liblog-agent-perl_1.001-2.debian.tar.xz
@@ -27,6 +27,7 @@ logdie "log and die";
 Summary: dev components for the perl-Log-Agent package.
 Group: Development
 Provides: perl-Log-Agent-devel = %{version}-%{release}
+Requires: perl-Log-Agent = %{version}-%{release}
 
 %description dev
 dev components for the perl-Log-Agent package.
@@ -45,7 +46,7 @@ license components for the perl-Log-Agent package.
 cd ..
 %setup -q -T -D -n Log-Agent-1.003 -b 1
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Log-Agent-1.003/deblicense/
+cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Log-Agent-1.003/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
