@@ -4,7 +4,7 @@
 #
 Name     : perl-Log-Agent
 Version  : 1.003
-Release  : 11
+Release  : 12
 URL      : https://cpan.metacpan.org/authors/id/M/MR/MROGASKI/Log-Agent-1.003.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MR/MROGASKI/Log-Agent-1.003.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libl/liblog-agent-perl/liblog-agent-perl_1.001-2.debian.tar.xz
@@ -12,6 +12,8 @@ Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Artistic-2.0
 Requires: perl-Log-Agent-license = %{version}-%{release}
+Requires: perl-Log-Agent-perl = %{version}-%{release}
+Requires: perl(Mail::Mailer)
 BuildRequires : buildreq-cpan
 
 %description
@@ -41,18 +43,28 @@ Group: Default
 license components for the perl-Log-Agent package.
 
 
+%package perl
+Summary: perl components for the perl-Log-Agent package.
+Group: Default
+Requires: perl-Log-Agent = %{version}-%{release}
+
+%description perl
+perl components for the perl-Log-Agent package.
+
+
 %prep
 %setup -q -n Log-Agent-1.003
-cd ..
-%setup -q -T -D -n Log-Agent-1.003 -b 1
+cd %{_builddir}
+tar xf %{_sourcedir}/liblog-agent-perl_1.001-2.debian.tar.xz
+cd %{_builddir}/Log-Agent-1.003
 mkdir -p deblicense/
-cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Log-Agent-1.003/deblicense/
+cp -r %{_builddir}/debian/* %{_builddir}/Log-Agent-1.003/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -62,7 +74,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -71,7 +83,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Log-Agent
-cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Log-Agent/deblicense_copyright
+cp %{_builddir}/Log-Agent-1.003/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Log-Agent/c45e70d397cb97825dd2d9bc9e605e87bf098bbf
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -83,6 +95,39 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %{_fixperms} %{buildroot}/*
 
 %files
+%defattr(-,root,root,-)
+
+%files dev
+%defattr(-,root,root,-)
+/usr/share/man/man3/Log::Agent.3
+/usr/share/man/man3/Log::Agent::Channel.3
+/usr/share/man/man3/Log::Agent::Channel::File.3
+/usr/share/man/man3/Log::Agent::Channel::Handle.3
+/usr/share/man/man3/Log::Agent::Channel::Syslog.3
+/usr/share/man/man3/Log::Agent::Driver.3
+/usr/share/man/man3/Log::Agent::Driver::Datum.3
+/usr/share/man/man3/Log::Agent::Driver::Default.3
+/usr/share/man/man3/Log::Agent::Driver::File.3
+/usr/share/man/man3/Log::Agent::Driver::Fork.3
+/usr/share/man/man3/Log::Agent::Driver::Mail.3
+/usr/share/man/man3/Log::Agent::Driver::Silent.3
+/usr/share/man/man3/Log::Agent::Driver::Syslog.3
+/usr/share/man/man3/Log::Agent::File::Native.3
+/usr/share/man/man3/Log::Agent::Message.3
+/usr/share/man/man3/Log::Agent::Priorities.3
+/usr/share/man/man3/Log::Agent::Stamping.3
+/usr/share/man/man3/Log::Agent::Tag.3
+/usr/share/man/man3/Log::Agent::Tag::Callback.3
+/usr/share/man/man3/Log::Agent::Tag::Caller.3
+/usr/share/man/man3/Log::Agent::Tag::Priority.3
+/usr/share/man/man3/Log::Agent::Tag::String.3
+/usr/share/man/man3/Log::Agent::Tag_List.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-Log-Agent/c45e70d397cb97825dd2d9bc9e605e87bf098bbf
+
+%files perl
 %defattr(-,root,root,-)
 /usr/lib/perl5/vendor_perl/5.28.2/Log/Agent.pm
 /usr/lib/perl5/vendor_perl/5.28.2/Log/Agent/Channel.pm
@@ -134,33 +179,3 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/lib/perl5/vendor_perl/5.28.2/auto/Log/Agent/logxcarp.al
 /usr/lib/perl5/vendor_perl/5.28.2/auto/Log/Agent/logxcroak.al
 /usr/lib/perl5/vendor_perl/5.28.2/auto/Log/Agent/prio_tag.al
-
-%files dev
-%defattr(-,root,root,-)
-/usr/share/man/man3/Log::Agent.3
-/usr/share/man/man3/Log::Agent::Channel.3
-/usr/share/man/man3/Log::Agent::Channel::File.3
-/usr/share/man/man3/Log::Agent::Channel::Handle.3
-/usr/share/man/man3/Log::Agent::Channel::Syslog.3
-/usr/share/man/man3/Log::Agent::Driver.3
-/usr/share/man/man3/Log::Agent::Driver::Datum.3
-/usr/share/man/man3/Log::Agent::Driver::Default.3
-/usr/share/man/man3/Log::Agent::Driver::File.3
-/usr/share/man/man3/Log::Agent::Driver::Fork.3
-/usr/share/man/man3/Log::Agent::Driver::Mail.3
-/usr/share/man/man3/Log::Agent::Driver::Silent.3
-/usr/share/man/man3/Log::Agent::Driver::Syslog.3
-/usr/share/man/man3/Log::Agent::File::Native.3
-/usr/share/man/man3/Log::Agent::Message.3
-/usr/share/man/man3/Log::Agent::Priorities.3
-/usr/share/man/man3/Log::Agent::Stamping.3
-/usr/share/man/man3/Log::Agent::Tag.3
-/usr/share/man/man3/Log::Agent::Tag::Callback.3
-/usr/share/man/man3/Log::Agent::Tag::Caller.3
-/usr/share/man/man3/Log::Agent::Tag::Priority.3
-/usr/share/man/man3/Log::Agent::Tag::String.3
-/usr/share/man/man3/Log::Agent::Tag_List.3
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Log-Agent/deblicense_copyright
