@@ -4,7 +4,7 @@
 #
 Name     : perl-Log-Agent
 Version  : 1.005
-Release  : 24
+Release  : 25
 URL      : https://cpan.metacpan.org/authors/id/M/MR/MROGASKI/Log-Agent-1.005.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MR/MROGASKI/Log-Agent-1.005.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libl/liblog-agent-perl/liblog-agent-perl_1.001-2.debian.tar.xz
@@ -129,56 +129,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Channel.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Channel/File.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Channel/Handle.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Channel/Syslog.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Driver.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Driver/Datum.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Driver/Default.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Driver/File.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Driver/Fork.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Driver/Mail.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Driver/Silent.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Driver/Syslog.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/File/Native.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/File_Pool.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Formatting.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Message.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Prefixer.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Priorities.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Stamping.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Tag.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Tag/Callback.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Tag/Caller.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Tag/Priority.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Tag/String.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Log/Agent/Tag_List.pm
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/DATUM_is_here.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/Priorities/autosplit.ix
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/Priorities/level_from_prio.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/Priorities/prio_from_level.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/Priorities/priority_level.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/autosplit.ix
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/bug.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/inited.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/log_default.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/logcarp.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/logcluck.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/logconfess.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/logconfig.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/logcroak.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/logdbg.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/logdebug.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/logdie.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/logerr.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/loginfo.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/logsay.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/logtags.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/logtrc.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/logwarn.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/logwrite.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/logxcarp.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/logxcroak.al
-/usr/lib/perl5/vendor_perl/5.34.0/auto/Log/Agent/prio_tag.al
+/usr/lib/perl5/*
