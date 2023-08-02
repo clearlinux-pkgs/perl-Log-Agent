@@ -4,7 +4,7 @@
 #
 Name     : perl-Log-Agent
 Version  : 1.005
-Release  : 27
+Release  : 28
 URL      : https://cpan.metacpan.org/authors/id/M/MR/MROGASKI/Log-Agent-1.005.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MR/MROGASKI/Log-Agent-1.005.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libl/liblog-agent-perl/liblog-agent-perl_1.001-2.debian.tar.xz
